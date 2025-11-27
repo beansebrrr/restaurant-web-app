@@ -14,7 +14,6 @@ router.route("/")
     description: req.body.description
   })
   try {
-    console.log("i'm here")
     await menuItem.save();
   } catch {
   } finally {

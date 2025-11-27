@@ -1,0 +1,13 @@
+<div class="cart">
+  <div class="cart__underlay"></div>
+  <div class="cart__content">
+    <ul>
+      <% basketItems.forEach(item => { %>
+        <li>
+          <h3><%= item.item.name %></h3>
+          <p><%= item.quantity %></p>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</div>

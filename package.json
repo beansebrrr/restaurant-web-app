@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app"
+    "dev": "nodemon app",
+    "sass": "sass src/sass/main.scss public/stylesheets/styles.css --watch --style=compressed"
   },
   "keywords": [],
   "author": "",
@@ -16,11 +17,11 @@
     "express": "^5.1.0",
     "express-ejs-layouts": "^2.5.1",
     "method-override": "^3.0.0",
-    "mongoose": "^9.0.0",
-    "sass": "^1.94.2"
+    "mongoose": "^9.0.0"
   },
   "devDependencies": {
     "dotenv": "^17.2.3",
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.11",
+    "sass": "^1.94.2"
   }
 }

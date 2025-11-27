@@ -1,0 +1,21 @@
+.menu {
+  display: grid;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5em;
+}
+
+.menu-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  
+  &__info {
+    padding: 0.5rem;
+  }
+
+  &__display-image {
+    object-fit: cover;
+    height: 100%;
+  }
+}
