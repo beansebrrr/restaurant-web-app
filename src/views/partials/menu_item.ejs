@@ -1,0 +1,7 @@
+<li>
+  <h2><%= menuItem.name %></h2>
+  <% if (menuItem.description) { %>
+    <p><%= menuItem.description %></p>
+    <p>AED <%= menuItem.price.toFixed(2) %></p>
+  <% } %>
+</li>

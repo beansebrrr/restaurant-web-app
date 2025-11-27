@@ -1,0 +1,32 @@
+import { Router } from "express";
+import MenuItem from "../models/menuItem.js";
+const router = Router()
+
+
+router.route("/")
+.get(function (req, res) {
+  res.redirect("/")
+})
+.post(async function (req, res) {
+  const menuItem = new MenuItem({
+    name: req.body.name,
+    price: req.body.price,
+    description: req.body.description
+  })
+  try {
+    console.log("i'm here")
+    await menuItem.save();
+  } catch {
+  } finally {
+    res.redirect("/")
+  }
+});
+
+
+router.route("/new")
+.get(function (req, res) {
+  res.render("menu/new", { menuItem: new MenuItem() })
+});
+
+
+export default router   

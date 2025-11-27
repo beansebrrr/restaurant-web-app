@@ -1,0 +1,7 @@
+<h1>Resto Menu</h1>
+
+<ul>
+  <% menuItems.forEach(menuItem => { %>
+    <%- include('./partials/menu_item', { menuItem }) %>
+  <% }); %>
+</ul>
