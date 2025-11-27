@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router()
 
-import MenuItem from "../models/menuItem.js"
+import MenuItem from "../models/menu.model.js"
 
 
 router.route("/")

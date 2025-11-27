@@ -13,6 +13,7 @@ const menuItemSchema = new mongoose.Schema({
   description: String,
 });
 
+
 function roundOffToCash(money) {
   return Math.round(money * 100) / 100;
 };
