@@ -21,5 +21,4 @@ basketItemSchema.methods.adjustQuantity = function(amount=1) {
   return this.save();
 };
 
-
 export default mongoose.model("BasketItem", basketItemSchema);

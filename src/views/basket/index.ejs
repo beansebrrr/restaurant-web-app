@@ -1,13 +1,21 @@
-<div class="cart">
-  <div class="cart__underlay"></div>
-  <div class="cart__content">
+<div class="basket"
+_="on updateTotalPrice
+    set prices to .price__value
+    set sum to 0
+    for p in prices
+      set sum to sum + parseFloat(p.textContent)
+    put sum.toFixed(2) into .total-price__value
+    end
+  on closeBasket remove me end
+  init trigger updateTotalPrice end">
+  <div class="basket__underlay" _="on click trigger closeBasket"></div>
+  <div class="basket__content">
     <ul>
       <% basketItems.forEach(item => { %>
-        <li>
-          <h3><%= item.item.name %></h3>
-          <p><%= item.quantity %></p>
-        </li>
-      <% }); %>
+        <%- include('../partials/basket-item', { item: item }) %>
+      <% 
+      }); %>
     </ul>
+    <p class="total-price">AED <span class="total-price__value"></span></p>
   </div>
 </div>

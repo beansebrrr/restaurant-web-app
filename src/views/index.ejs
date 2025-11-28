@@ -1,7 +1,12 @@
 <h1>Resto Menu</h1>
 
+<button
+hx-get="/basket"
+hx-target="body"
+hx-swap="beforeend">Basket</button>
+
 <ul class="menu">
   <% menuItems.forEach(menuItem => { %>
-    <%- include('./partials/menu_item', { menuItem }) %>
+    <%- include('./partials/menu-item', { menuItem }) %>
   <% }); %>
 </ul>

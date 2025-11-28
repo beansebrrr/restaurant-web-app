@@ -24,8 +24,15 @@ router.route("/")
 
 router.route("/new")
 .get(function (req, res) {
-  res.render("menu/new", { menuItem: new MenuItem() })
+  res.render("menu/new", { menuItem: new MenuItem() });
 });
+
+
+router.route("/:id")
+.get(async function (req, res) {
+  const menuItem = await MenuItem.findById(req.params.id).exec();
+  res.render("menu/view", { menuItem: menuItem });
+})
 
 
 export default router   

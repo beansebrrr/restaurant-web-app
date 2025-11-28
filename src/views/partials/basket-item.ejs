@@ -1,0 +1,16 @@
+<li _="on removeBasketItem remove me">
+  <article class="basket-item">
+    <img class="basket-item__display-image" src="<%= item.item.imagePath || '/images/placeholder.png' %>" alt="<%= item.item.name %>">
+    <div class="basket-item__content">
+      <h3><%= item.item.name %></h3>
+      <input type="number" inputmode="numeric" value="<%= item.quantity %>" name="quantity"
+        hx-trigger="change"
+        hx-put="/basket/<%= item.id %>"
+        hx-target="closest li"
+        _="on load trigger updateTotalPrice
+        if my value is less than 1 trigger removeBasketItem"
+      >
+      <p class="price">AED <span class="price__value"><%= (item.quantity * item.item.price).toFixed(2) %></span></p>
+    </div>
+  </article>
+</li>

@@ -1,5 +1,10 @@
 <li>
-  <div class="menu-item" hx-get="/menu/<%= menuItem.id %>">
+  <article class="menu-item"
+    hx-get="/menu/<%= menuItem.id %>"
+    hx-swap="beforeend"
+    hx-target="body"
+    hx-trigger="click"
+  >
     <img class="menu-item__display-image" src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<%= menuItem.name %>">
     <div class="menu-item__info">
       <h2><%= menuItem.name %></h2>
@@ -8,10 +13,5 @@
       <% } %>
       <p>AED <%= menuItem.price.toFixed(2) %></p>
     </div>
-    <!-- <button
-      hx-post="/basket"
-      hx-trigger="click"
-      hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
-    >Add to Basket</button> -->
-  </div>
+  </article>
 </li>

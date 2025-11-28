@@ -13,7 +13,6 @@ export async function addToBasket(menuItem) {
 };
 
 export async function removeFromBasket(basketItem) {
-  basketItem.adjustQuantity(-1);
   if (basketItem.quantity <= 0) {
     await basketItem.deleteOne();
   };

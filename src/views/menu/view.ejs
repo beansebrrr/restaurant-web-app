@@ -1,0 +1,23 @@
+<!-- Pop-up to view a menu item -->
+
+<div class="menu-item-popup" _="on closePopup remove me">
+  <div class="menu-item-popup__underlay" _="on click trigger closePopup"></div>
+  <article class="menu-item-popup__content">
+    <button _="on click trigger closePopup">Close</button>
+    <img src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<% menuItem.name %>">
+  
+      <div class="menu-item-popup__info">
+        <h2><%= menuItem.name %></h2>
+        <% if (menuItem.description) { %>
+          <p><%= menuItem.description %></p>
+        <% } %>
+        <p>AED <%= menuItem.price.toFixed(2) %></p>
+      </div>
+  
+    <button
+      hx-post="/basket"
+      hx-trigger="click"
+      hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
+    >Add to Basket</button>
+  </article>
+</div>
