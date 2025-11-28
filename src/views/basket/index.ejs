@@ -1,4 +1,4 @@
-<div class="basket"
+<section class="basket"
 _="on updateTotalPrice
     set prices to .price__value
     set sum to 0
@@ -7,15 +7,18 @@ _="on updateTotalPrice
     put sum.toFixed(2) into .total-price__value
     end
   on closeBasket remove me end
-  init trigger updateTotalPrice end">
+  init trigger updateTotalPrice">
   <div class="basket__underlay" _="on click trigger closeBasket"></div>
   <div class="basket__content">
-    <ul>
-      <% basketItems.forEach(item => { %>
-        <%- include('../partials/basket-item', { item: item }) %>
-      <% 
-      }); %>
-    </ul>
-    <p class="total-price">AED <span class="total-price__value"></span></p>
+    <% if (basketItems.length > 0) { %>
+      <ul>
+        <% basketItems.forEach(item => { %>
+          <%- include('../partials/basket-item', { item: item }) %>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <p>Your basket is empty :(</p>
+    <% }; %>
+    <p class="total-price">AED <span class="total-price__value">0.00</span></p>
   </div>
-</div>
+</section>

@@ -13,11 +13,11 @@
       <p>AED <%= menuItem.price.toFixed(2) %></p>
     </div>
     <form
-      hx-post="/basket"
-      hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
-      hx-swap="none">
+    hx-post="/basket"
+    hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
+    hx-target="find button">
       <input type="number" inputmode="numeric" value="1" min="1" name="quantity">
-      <button>Add to Basket</button>
+      <button type="submit">Add to Basket</button>
     </form>
   </article>
 </div>

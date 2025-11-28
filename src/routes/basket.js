@@ -19,7 +19,7 @@ router.route("/")
     
     addToBasket(item, req.body.quantity);
     
-    res.send(`Added ${item.name} to basket!`);
+    res.send(`Added to basket!`);
   } catch (error) {
     console.log(error);
   }
