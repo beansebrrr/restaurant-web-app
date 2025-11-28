@@ -5,8 +5,4 @@ hx-get="/basket"
 hx-target="body"
 hx-swap="beforeend">Basket</button>
 
-<ul class="menu">
-  <% menuItems.forEach(menuItem => { %>
-    <%- include('./partials/menu-item', { menuItem }) %>
-  <% }); %>
-</ul>
+<div hx-get="/menu" hx-trigger="load"></div>

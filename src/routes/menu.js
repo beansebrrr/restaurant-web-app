@@ -4,8 +4,9 @@ const router = Router()
 
 
 router.route("/")
-.get(function (req, res) {
-  res.redirect("/")
+.get(async function (req, res) {
+    const menuItems = await MenuItem.find({});
+    res.render("menu/index", { items: menuItems });
 })
 .post(async function (req, res) {
   const menuItem = new MenuItem({
@@ -15,9 +16,10 @@ router.route("/")
   })
   try {
     await menuItem.save();
-  } catch {
+  } catch (error) {
+    console.error(error);
   } finally {
-    res.redirect("/")
+    res.redirect("/");
   }
 });
 

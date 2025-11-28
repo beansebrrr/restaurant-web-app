@@ -5,19 +5,19 @@
   <article class="menu-item-popup__content">
     <button _="on click trigger closePopup">Close</button>
     <img src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<% menuItem.name %>">
-  
-      <div class="menu-item-popup__info">
-        <h2><%= menuItem.name %></h2>
-        <% if (menuItem.description) { %>
-          <p><%= menuItem.description %></p>
-        <% } %>
-        <p>AED <%= menuItem.price.toFixed(2) %></p>
-      </div>
-  
-    <button
+    <div class="menu-item-popup__info">
+      <h2><%= menuItem.name %></h2>
+      <% if (menuItem.description) { %>
+        <p><%= menuItem.description %></p>
+      <% } %>
+      <p>AED <%= menuItem.price.toFixed(2) %></p>
+    </div>
+    <form
       hx-post="/basket"
-      hx-trigger="click"
       hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
-    >Add to Basket</button>
+      hx-swap="none">
+      <input type="number" inputmode="numeric" value="1" min="1" name="quantity">
+      <button>Add to Basket</button>
+    </form>
   </article>
 </div>

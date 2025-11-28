@@ -8,8 +8,7 @@
         hx-put="/basket/<%= item.id %>"
         hx-target="closest li"
         _="on load trigger updateTotalPrice
-        if my value is less than 1 trigger removeBasketItem"
-      >
+        if my value is less than 1 trigger removeBasketItem">
       <p class="price">AED <span class="price__value"><%= (item.quantity * item.item.price).toFixed(2) %></span></p>
     </div>
   </article>

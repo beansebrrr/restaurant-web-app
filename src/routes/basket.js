@@ -16,9 +16,8 @@ router.route("/")
       throw Error("Can't reference the item ID");
     };
     const item = await MenuItem.findById(req.body.itemID);
-    console.log(item);
     
-    addToBasket(item);
+    addToBasket(item, req.body.quantity);
     
     res.send(`Added ${item.name} to basket!`);
   } catch (error) {

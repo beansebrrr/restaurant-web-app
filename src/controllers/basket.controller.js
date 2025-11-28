@@ -1,12 +1,13 @@
 import BasketItem from "../models/basket.model.js"
 
-export async function addToBasket(menuItem) {
+export async function addToBasket(menuItem, quantity=1) {
   const existing = await BasketItem.findOne({ item: menuItem.id });
   if (existing) {
     existing.adjustQuantity();
   } else {
     const newBasketItem = new BasketItem({
       item: menuItem.id,
+      quantity: quantity
     });
     await newBasketItem.save();
   };
