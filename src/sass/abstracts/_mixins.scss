@@ -1,0 +1,34 @@
+@mixin button($background-color: hsl(0, 0%, 85%), $color: hsl(0, 0, 15%)) {
+  background-color: $background-color;
+  color: $color;
+  padding: 0.5em 1em;
+  border-radius: 50vh;
+
+  &:hover {
+    background-color: darken($color: $background-color, $amount: 10);
+  }
+}
+
+@mixin popup-modal {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &__content {
+    background-color: white;
+    position: absolute;
+  }
+  
+  &__underlay {
+    z-index: -1;
+    position: absolute;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

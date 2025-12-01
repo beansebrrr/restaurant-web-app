@@ -1,3 +1,5 @@
+@use "../abstracts";
+
 .menu {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -7,7 +9,7 @@
   gap: 0.5rem;
 }
 
-.menu-item {
+.menu-card {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
@@ -24,27 +26,16 @@
   }
 }
 
-.menu-item-popup {
-  z-index: 10;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
+.menu-popup {
+  @include abstracts.popup-modal;
   &__content {
-    background-color: white;
-    position: absolute;
-    bottom: 0;
-  }
-  
-  &__underlay {
-    z-index: -1;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.373);
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
+    padding-block-end: 2rem;
+  }
+
+  button {
+    @include abstracts.button(abstracts.$color-main, )
+
   }
 }

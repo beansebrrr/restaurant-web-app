@@ -1,22 +1,27 @@
-<div class="menu-item-popup" _="on closePopup remove me">
-  <div class="menu-item-popup__underlay" _="on click trigger closePopup"></div>
-  <article class="menu-item-popup__content">
+<div class="menu-popup" _="on closePopup remove me end
+                           on updatePrice
+                           set base_price to #base-price
+                           set quantity to the value of #quantity
+                           set total_price to parseFloat(base_price.textContent) * quantity
+                           put total_price.toFixed(2) into #total-price">
+  <div class="menu-popup__underlay" _="on click trigger closePopup"></div>
+  <article class="menu-popup__content">
     <button _="on click trigger closePopup">Close</button>
     <img src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<% menuItem.name %>">
-    <div class="menu-item-popup__info">
+    <div class="menu-popup__info">
       <h2><%= menuItem.name %></h2>
-      <% if (menuItem.description) { %>
-        <p><%= menuItem.description %></p>
-      <% } %>
-      <p>AED <%= menuItem.price.toFixed(2) %></p>
+      <div class="price">
+        <p class="base_price">AED <span class="value" id="base-price"><%= menuItem.price.toFixed(2) %></span></p>
+        <p class="total_price">AED <span class="value" id="total-price"><%= menuItem.price.toFixed(2) %></span></p>
+      </div>
+      <form class="menu-popup__add-form"
+      hx-post="/basket"
+      hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
+      hx-target="find button"
+      _="on submit trigger closePopup">
+        <input type="number" inputmode="numeric" value="1" min="1" name="quantity" id="quantity" _="on change trigger updatePrice">
+        <button type="submit">Add to Basket</button>
+      </form>
     </div>
-    <form
-    hx-post="/basket"
-    hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
-    hx-target="find button"
-    _="on submit trigger closePopup">
-      <input type="number" inputmode="numeric" value="1" min="1" name="quantity">
-      <button type="submit">Add to Basket</button>
-    </form>
   </article>
 </div>
