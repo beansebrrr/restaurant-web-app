@@ -1,17 +1,21 @@
 .menu {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  gap: 0.5em;
+  padding: 0.5rem;
+  gap: 0.5rem;
 }
 
 .menu-item {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  padding-block-end: 0.5rem;
   
-  &__info {
-    padding: 0.5rem;
+  &__name, &__price {
+    padding-inline: 0.5rem;
+    margin: 0;
   }
 
   &__display-image {

@@ -1,16 +1,9 @@
-<li>
-  <article class="menu-item"
+<li class="menu-item"
   hx-get="/menu/<%= menuItem.id %>"
   hx-swap="beforeend"
   hx-target="body"
   hx-trigger="click">
-    <img class="menu-item__display-image" src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<%= menuItem.name %>">
-    <div class="menu-item__info">
-      <h2><%= menuItem.name %></h2>
-      <% if (menuItem.description) { %>
-        <p><%= menuItem.description %></p>
-      <% } %>
-      <p>AED <%= menuItem.price.toFixed(2) %></p>
-    </div>
-  </article>
+  <img class="menu-item__display-image" src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<%= menuItem.name %>">
+  <h2 class="menu-item__name"><%= menuItem.name %></h2>
+  <p class="menu-item__price">AED <%= menuItem.price.toFixed(2) %></p>
 </li>

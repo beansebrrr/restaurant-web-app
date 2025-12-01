@@ -1,5 +1,3 @@
-<!-- Pop-up to view a menu item -->
-
 <div class="menu-item-popup" _="on closePopup remove me">
   <div class="menu-item-popup__underlay" _="on click trigger closePopup"></div>
   <article class="menu-item-popup__content">
@@ -15,7 +13,8 @@
     <form
     hx-post="/basket"
     hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
-    hx-target="find button">
+    hx-target="find button"
+    _="on submit trigger closePopup">
       <input type="number" inputmode="numeric" value="1" min="1" name="quantity">
       <button type="submit">Add to Basket</button>
     </form>

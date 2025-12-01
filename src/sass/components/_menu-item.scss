@@ -1,0 +1,19 @@
+.menu-item {
+  overflow: hidden;
+  border: black solid 2px;
+  border-radius: 4px;
+
+  
+  &__name {
+    font-size: 1.25rem;
+  }
+  
+  // Hover animation deactivates if not wanted (accessibility things)
+  transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease;
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover, &:active {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 0 0 black;
+    }
+  }
+}
