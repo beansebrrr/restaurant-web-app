@@ -6,7 +6,6 @@ for p in prices
 set sum to sum + parseFloat(p.textContent)
 put sum.toFixed(2) into .total-price__value
 end
-on closeBasket remove me end
 init trigger updateTotalPrice"
 class="basket">
   <a href="/">Back</a>
