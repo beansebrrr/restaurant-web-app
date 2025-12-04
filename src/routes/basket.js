@@ -32,11 +32,9 @@ router.route("/:id")
   
   try {
     basketItem = await BasketItem.findById(req.params.id).populate("item").exec();
-    console.log(req.body.quantity)
     basketItem.quantity = parseInt(req.body.quantity);
     await basketItem.save();
     removeFromBasket(basketItem);
-    console.log(basketItem.quantity)
     res.render("partials/basket-item.ejs", { item: basketItem })
   } catch {
     res.redirect("/")
