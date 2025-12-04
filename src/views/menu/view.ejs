@@ -1,18 +1,17 @@
-<div class="food-details" _="on updatePrice
-                           set quantity to the value of first <input/> in .quantity-input in me
-                           set total_price to <%= menuItem.price %> * quantity
-                           put total_price.toFixed(2) into #price">
-  <header>
-    <nav><a href="/">Back</a></nav>
-    <h2><%= menuItem.name %></h2>  
-  </header>
+<article class="food-details" _="on updatePrice
+                                 set quantity to the value of <input/> in me
+                                 set total_price to <%= menuItem.price %> * quantity
+                                 put total_price.toFixed(2) into #price">
+  <nav><a href="/">Back</a></nav>
   <img class="food-details__thumbnail" src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<% menuItem.name %>">
-  <h2><%= menuItem.name %></h2>
-  <p>AED <span id="price"><%= menuItem.price.toFixed(2) %></span></p>
+  <div class="food-details__info">
+    <h2><%= menuItem.name %></h2>
+    <p class="food-details__price">AED <span id="price"><%= menuItem.price.toFixed(2) %></span></p>
+  </div>
   <form hx-post="/basket"
   hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
-  hx-target="find button">
+  hx-target="button[type=submit]">
     <%- include('../partials/quantity-input', { minValue: 1 }) %>
     <button type="submit">Add to Basket</button>
   </form>
-</div>
+</article>

@@ -1,7 +1,8 @@
 .quantity-input {
 
   input[type="number"] {
-    max-width: 6ch;
+    box-sizing: content-box;
+    max-width: 5ch;
     text-align: center;
     border-radius: 0;
     border: none;
