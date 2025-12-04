@@ -1,22 +1,18 @@
-<div class="menu-popup" _="on updatePrice
-                           set base_price to #base-price
-                           set quantity to the value of #quantity
-                           set total_price to parseFloat(base_price.textContent) * quantity
-                           put total_price.toFixed(2) into #total-price">
-  <a href="/">Back</a>
-  <img src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<% menuItem.name %>">
-  <div class="menu-popup__info">
-    <h2><%= menuItem.name %></h2>
-    <div class="price">
-      <p class="base_price">AED <span class="value" id="base-price"><%= menuItem.price.toFixed(2) %></span></p>
-      <p class="total_price">AED <span class="value" id="total-price"><%= menuItem.price.toFixed(2) %></span></p>
-    </div>
-    <form class="menu-popup__add-form"
-    hx-post="/basket"
-    hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
-    hx-target="find button">
-      <input type="number" inputmode="numeric" value="1" min="1" name="quantity" id="quantity" _="on change trigger updatePrice">
-      <button type="submit">Add to Basket</button>
-    </form>
-  </div>
+<div class="food-details" _="on updatePrice
+                           set quantity to the value of first <input/> in .quantity-input in me
+                           set total_price to <%= menuItem.price %> * quantity
+                           put total_price.toFixed(2) into #price">
+  <header>
+    <nav><a href="/">Back</a></nav>
+    <h2><%= menuItem.name %></h2>  
+  </header>
+  <img class="food-details__thumbnail" src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<% menuItem.name %>">
+  <h2><%= menuItem.name %></h2>
+  <p>AED <span id="price"><%= menuItem.price.toFixed(2) %></span></p>
+  <form hx-post="/basket"
+  hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
+  hx-target="find button">
+    <%- include('../partials/quantity-input', { minValue: 1 }) %>
+    <button type="submit">Add to Basket</button>
+  </form>
 </div>

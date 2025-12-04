@@ -1,0 +1,13 @@
+@mixin button($button-color: hsl(0, 0%, 90%)) {
+  background-color: $button-color;
+  border: solid 1px adjust-color($color: $button-color, $hue: 5, $lightness: -20%);
+  border-radius: 4px;
+
+  &:active:not(:disabled) {
+    background-color: darken($color: $button-color, $amount: 5);
+  }
+}
+
+button {
+  @include button()
+}

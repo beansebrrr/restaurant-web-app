@@ -1,0 +1,18 @@
+.quantity-input {
+
+  input[type="number"] {
+    max-width: 6ch;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+    appearance: textfield
+  }
+
+  button {
+    aspect-ratio: 1 / 1;
+    min-height: 2rem;
+  }
+}

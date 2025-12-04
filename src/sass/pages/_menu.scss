@@ -27,12 +27,3 @@
     margin: 0;
   }
 }
-
-.menu-popup {
-  @include abstracts.popup-modal;
-  &__content {
-    top: 0;
-    bottom: 0;
-    padding-block-end: 2rem;
-  }
-}

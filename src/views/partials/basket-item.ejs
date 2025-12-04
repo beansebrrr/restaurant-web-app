@@ -1,14 +1,15 @@
-<li _="on removeBasketItem remove me">
-  <article class="basket-item">
-    <img class="basket-item__display-image" src="<%= item.item.imagePath || '/images/placeholder.png' %>" alt="<%= item.item.name %>">
-    <div class="basket-item__content">
-      <h3><%= item.item.name %></h3>
-      <input type="number" inputmode="numeric" value="<%= item.quantity %>" name="quantity"
-      hx-trigger="change"
-      hx-put="/basket/<%= item.id %>"
-      hx-target="closest li"
-      _="on load trigger updateTotalPrice if my value is less than 1 trigger removeBasketItem">
-      <p class="price">AED <span class="price__value"><%= (item.quantity * item.item.price).toFixed(2) %></span></p>
-    </div>
-  </article>
+<li class="basket-item"
+hx-trigger="change from:find .quantity-input>input"
+hx-vals='js:{ "quantity": this.querySelector(".quantity-input>input").value }'
+hx-put="/basket/<%= item.id %>"
+hx-swap="outerHTML"
+_="on load from <input/> in .quantity-input in me trigger updateTotalPrice
+   console.log(value of <input/> in .quantity-input in me)
+   if (value of <input/> in .quantity-input in me) <= 0 remove me">
+  <img class="basket-item__display-image" src="<%= item.item.imagePath || '/images/placeholder.png' %>" alt="<%= item.item.name %>">
+  <div class="basket-item__content">
+    <h3><%= item.item.name %></h3>
+    <%- include('./quantity-input', { minValue: 0, initialValue: item.quantity }) %>
+    <p>AED <span class="price"><%= (item.quantity * item.item.price).toFixed(2) %></span></p>
+  </div>
 </li>
