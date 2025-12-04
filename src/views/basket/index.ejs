@@ -1,13 +1,10 @@
-<section class="basket" _="
-on updateTotalPrice
-set prices to .price
-set sum to 0
-for p in prices
-set sum to sum + parseFloat(p.textContent)
-put sum.toFixed(2) into .total-price__value
-end
-init trigger updateTotalPrice"
-class="basket">
+<section class="basket" _="on updateTotalPrice
+                           set prices to .price set sum to 0
+                           for p in prices
+                            set sum to sum + parseFloat(p.textContent.replace(',', ''))
+                            put sum.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+                            into .total-price__value end
+                           init trigger updateTotalPrice">
   <a href="/">Back</a>
   <% if (basketItems.length > 0) { %>
     <ul>
@@ -19,4 +16,5 @@ class="basket">
     <p>Your basket is empty :(</p>
   <% }; %>
   <p class="total-price">AED <span class="total-price__value">0.00</span></p>
+  <button>Place order</button>
 </section>

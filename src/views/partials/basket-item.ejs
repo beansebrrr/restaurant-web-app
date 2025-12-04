@@ -3,13 +3,16 @@ hx-trigger="change from:find .quantity-input>input"
 hx-vals='js:{ "quantity": this.querySelector(".quantity-input>input").value }'
 hx-put="/basket/<%= item.id %>"
 hx-swap="outerHTML"
-_="on load from <input/> in .quantity-input in me trigger updateTotalPrice
-   console.log(value of <input/> in .quantity-input in me)
+_="on load from <input/> in .quantity-input in me
+   trigger updateTotalPrice
    if (value of <input/> in .quantity-input in me) <= 0 remove me">
-  <img class="basket-item__display-image" src="<%= item.item.imagePath || '/images/placeholder.png' %>" alt="<%= item.item.name %>">
-  <div class="basket-item__content">
+  <img class="basket-item__thumbnail" src="<%= item.item.imagePath || '/images/placeholder.png' %>" alt="<%= item.item.name %>">
+  <div class="basket-item__info">
     <h3><%= item.item.name %></h3>
     <%- include('./quantity-input', { minValue: 0, initialValue: item.quantity }) %>
-    <p>AED <span class="price"><%= (item.quantity * item.item.price).toFixed(2) %></span></p>
+    <p class="basket-item__price">AED <span class="price"><%= (item.quantity * item.item.price).toLocaleString ("en-AE", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }) %></span></p>
   </div>
 </li>
