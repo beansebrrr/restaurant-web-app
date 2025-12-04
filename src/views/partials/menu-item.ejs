@@ -1,9 +1,0 @@
-<li class="menu-card"
-  hx-get="/menu/<%= menuItem.id %>"
-  hx-swap="beforeend"
-  hx-target="body"
-  hx-trigger="click">
-  <img class="menu-card__display-image" src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<%= menuItem.name %>">
-  <h2 class="menu-card__name"><%= menuItem.name %></h2>
-  <p class="menu-card__price">AED <%= menuItem.price.toFixed(2) %></p>
-</li>

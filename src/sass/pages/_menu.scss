@@ -9,20 +9,22 @@
   gap: 0.5rem;
 }
 
-.menu-card {
+.food-card {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
   padding-block-end: 0.5rem;
+  position: relative;
+
+  a {
+    position: absolute;
+    top: 0;
+    inset: 0;
+  }
   
   &__name, &__price {
     padding-inline: 0.5rem;
     margin: 0;
-  }
-
-  &__display-image {
-    object-fit: cover;
-    height: 100%;
   }
 }
 
