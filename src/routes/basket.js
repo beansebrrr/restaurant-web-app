@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { addToBasket, removeFromBasket } from "../controllers/basket.controller.js";
 import BasketItem from "../models/basket.model.js"
-import MenuItem from "../models/menu.model.js"
+import MenuItem from "../models/food.model.js"
 const router = Router()
 
 
@@ -21,7 +21,7 @@ router.route("/")
     
     res.send(`Added to basket!`);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 
@@ -29,7 +29,7 @@ router.route("/")
 router.route("/:id")
 .put(async function (req, res) {
   let basketItem;
-  
+
   try {
     basketItem = await BasketItem.findById(req.params.id).populate("item").exec();
     basketItem.quantity = parseInt(req.body.quantity);

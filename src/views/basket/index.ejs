@@ -5,7 +5,12 @@
                             put sum.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
                             into .total-price__value end
                            init trigger updateTotalPrice">
-  <a href="/">Back</a>
+  <header>
+    <nav>
+      <a class="nav-back" href="/"><</a>
+    </nav>
+    <h2>Basket</h2>
+  </header>
   <% if (basketItems.length > 0) { %>
     <ul>
       <% basketItems.forEach(item => { %>
@@ -15,6 +20,11 @@
   <% } else { %>
     <p>Your basket is empty :(</p>
   <% }; %>
-  <p class="total-price">AED <span class="total-price__value">0.00</span></p>
-  <button>Place order</button>
+  <form class="basket__checkout-prompt" action="/receipt">
+    <div>
+      <p>Total</p>
+      <p class="total-price">AED <span class="total-price__value">0.00</span></p>
+    </div>
+    <button type="submit">Place order</button>
+  </form>
 </section>

@@ -2,8 +2,8 @@
                                  set quantity to the value of <input/> in me
                                  set total_price to <%= menuItem.price %> * quantity
                                  put total_price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) into #price">
-  <nav><a href="/">Back</a></nav>
-  <img class="food-details__thumbnail" src="<%= menuItem.imagePath || '/images/placeholder.png' %>" alt="<% menuItem.name %>">
+  <nav><a class="nav-back" href="/">Back</a></nav>
+   <%- include('../partials/food-thumbnail', { food: menuItem }) %>
   <div class="food-details__info">
     <h2><%= menuItem.name %></h2>
     <p class="food-details__price">AED <span id="price"><%= menuItem.price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></p>

@@ -14,6 +14,7 @@ export async function addToBasket(menuItem, quantity=1) {
 };
 
 export async function removeFromBasket(basketItem) {
+
   if (basketItem.quantity <= 0) {
     await basketItem.deleteOne();
   };

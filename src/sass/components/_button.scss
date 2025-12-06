@@ -4,7 +4,7 @@
   border-radius: 4px;
 
   &:active:not(:disabled) {
-    background-color: darken($color: $button-color, $amount: 5);
+    background-color: adjust-color($color: $button-color, $lightness: -10%);
   }
 }
 
