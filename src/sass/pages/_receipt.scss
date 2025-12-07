@@ -1,0 +1,30 @@
+.receipt {
+
+  &__total-cost > * {
+    border-top: solid black 1px;
+    border-top-style: dashed;
+  }
+
+  * {
+    font-family: monospace;
+    padding-inline: 0;
+  }
+
+  th:first-child, td:first-child {
+    min-width: 15ch;
+    max-width: 30ch;
+  }
+  
+  th:not(:first-child):not(:last-child),
+  td:not(:first-child):not(:last-child) {
+    text-align: center;
+    min-width: 10ch;
+    max-width: 10ch;
+  } 
+  
+  th:last-child, td:last-child {
+    text-align: end;
+    min-width: 15ch;
+    max-width: 20ch;
+  }
+}

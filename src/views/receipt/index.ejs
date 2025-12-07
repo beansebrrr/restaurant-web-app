@@ -1,0 +1,25 @@
+
+<table class="receipt">
+  <thead>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
+  </thead>
+  <% foods.forEach(food => { %>
+    
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.quantity %></td>
+      <td>AED <%= food.cost %></td>
+    </tr>
+
+  <% }); %>
+  <tr class="receipt__total-cost">
+    <td colspan="2">Total</td>
+    <td>AED <%= foods.reduce((sum, food) => sum + parseFloat(food.cost), 0) %></td>
+  </tr>
+</table>
+
+<p>
+  <%= foods.totalCost %>
+</p>

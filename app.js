@@ -11,6 +11,7 @@ const __dirname = import.meta.dirname;
 import basketRouter from "./src/routes/basket.js"
 import indexRouter from "./src/routes/index.js"
 import menuRouter from "./src/routes/menu.js"
+import receiptRouter from "./src/routes/receipt.js"
 
 if (process.env.NODE_ENV !== "production") {
   dotenv.config()
@@ -38,6 +39,7 @@ db.on("open", () => console.log("Database connected"));
 app.use("/", indexRouter);
 app.use("/basket", basketRouter);
 app.use("/menu", menuRouter);
+app.use("/receipt", receiptRouter );
 
 
 app.listen(process.env.PORT || 3000);

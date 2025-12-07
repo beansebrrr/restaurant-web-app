@@ -10,9 +10,6 @@ _="on load from <input/> in .quantity-input in me
   <div class="basket-item__info">
     <h3><%= item.item.name %></h3>
     <%- include('./quantity-input', { minValue: 0, initialValue: item.quantity }) %>
-    <p class="basket-item__price">AED <span class="price"><%= (item.quantity * item.item.price).toLocaleString ("en-AE", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-  }) %></span></p>
+    <p class="basket-item__price">AED <span class="price"><%= item.cost %></span></p>
   </div>
 </li>
