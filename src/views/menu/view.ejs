@@ -3,7 +3,7 @@
                                  set total_price to <%= menuItem.price %> * quantity
                                  put total_price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) into #price">
   <nav><a class="nav-back" href="/">Back</a></nav>
-   <%- include('../partials/food-thumbnail', { food: menuItem }) %>
+   <%- include('../partials/food-thumbnail', { food: menuItem, className: "food-details__thumbnail" }) %>
   <div class="food-details__info">
     <h2><%= menuItem.name %></h2>
     <p class="food-details__price">AED <span id="price"><%= menuItem.price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></p>

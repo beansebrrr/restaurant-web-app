@@ -1,16 +1,40 @@
 .receipt {
-
-  &__total-cost > * {
-    border-top: solid black 1px;
-    border-top-style: dashed;
-  }
+  max-width: fit-content;
+  padding: 1rem;
+  background-color: white;
 
   * {
+    // font-size: 1rem;
     font-family: monospace;
     padding-inline: 0;
   }
 
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-block-end: 1.5rem;
+  }
+
+  &__total-cost>* {
+    font-weight: bold;
+    border-top: solid black 1px;
+    border-top-style: dashed;
+    padding-block: 1rem;
+  }
+
+  .barcode {
+    margin-block: 1rem;
+  }
+}
+
+.receipt__transactions {
+  margin-block: 1rem;
+  th {
+    text-transform: uppercase;
+  }
+
   th:first-child, td:first-child {
+    text-align: start;
     min-width: 15ch;
     max-width: 30ch;
   }
@@ -24,7 +48,7 @@
   
   th:last-child, td:last-child {
     text-align: end;
-    min-width: 15ch;
-    max-width: 20ch;
+    min-width: 10ch;
+    max-width: 15ch;
   }
 }
