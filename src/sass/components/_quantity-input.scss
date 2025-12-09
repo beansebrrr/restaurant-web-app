@@ -1,4 +1,6 @@
 .quantity-input {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
 
   input[type="number"] {
     box-sizing: content-box;

@@ -1,11 +1,13 @@
 .receipt {
   max-width: fit-content;
   padding: 1rem;
+  margin: 1rem auto;
   background-color: white;
+  border: black solid 1px;
 
   * {
     // font-size: 1rem;
-    font-family: monospace;
+    font-family: "Fira Mono";
     padding-inline: 0;
   }
 
@@ -36,19 +38,19 @@
   th:first-child, td:first-child {
     text-align: start;
     min-width: 15ch;
-    max-width: 30ch;
+    max-width: 25ch;
   }
   
   th:not(:first-child):not(:last-child),
   td:not(:first-child):not(:last-child) {
     text-align: center;
-    min-width: 10ch;
+    min-width: 5ch;
     max-width: 10ch;
   } 
   
   th:last-child, td:last-child {
     text-align: end;
-    min-width: 10ch;
+    min-width: 5ch;
     max-width: 15ch;
   }
 }
