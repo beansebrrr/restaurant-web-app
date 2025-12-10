@@ -1,0 +1,10 @@
+@use "../abstracts/variables" as var;
+
+:root {
+  background: url("/assets/images/background.svg"), var.$clr-off-white;
+  background-position: center;
+}
+
+main {
+  padding: 1rem var.$pad-inline-rg;
+}

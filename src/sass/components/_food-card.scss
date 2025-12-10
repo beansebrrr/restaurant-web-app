@@ -1,0 +1,92 @@
+@use "../abstracts/variables" as var;
+@use "sass:color";
+
+.food-card {
+  position: relative;
+  background-color: var.$clr-white;
+  border: var.$clr-navy solid 1px;
+  min-height: 150px;
+  padding: 4px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) 3fr;
+  gap: 4px;
+  transition: box-shadow 200ms ease;
+
+  &__thumbnail {
+    max-height: 100%;
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  &__price {
+    font-size: 1.1rem;
+  }
+
+  &__button {
+    padding: 0;
+    position: relative;
+    z-index: 10;
+    width: 3ch;
+    aspect-ratio: 1 / 1;
+    
+    border: var.$clr-navy solid 1px;
+    background-color: var.$clr-yellow;
+    border-radius: 4px;
+    cursor: pointer;
+    transition:
+      background-color 100ms ease,
+      padding 100ms ease,
+      box-shadow 100ms ease;
+
+    &:hover {
+      background-color: color.adjust(var.$clr-yellow, $hue: -10);
+    }
+
+    &:active {
+      padding-top: 4px;
+      box-shadow: inset color.adjust(var.$clr-yellow, $hue: -10, $lightness: -20%) 0 4px;
+    }
+  }
+  
+  &__contents {
+    padding: 4px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    div {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+    }
+  }
+
+  &__description {
+    color: color.adjust(var.$clr-navy, $saturation: -5%, $lightness: 10%);
+  }
+
+  a {
+    position: absolute;
+    cursor: unset;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    box-shadow: color.change(var.$clr-navy, $alpha: 25%) 0 0 4px 4px;
+  }
+}
+
+@container menu (inline-size < 35ch) {
+  .food-card {
+    grid-template-columns: unset;
+
+    &__thumbnail {
+      aspect-ratio: 4 / 3;
+    }
+  }
+}

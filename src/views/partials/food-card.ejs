@@ -1,6 +1,15 @@
 <li role="link" class="food-card">
-  <a href="/menu/<%= menuItem.id %>" tabindex="0"></a>
+  <a href="/menu/<%= menuItem.id %>"></a>
   <%- include('./food-thumbnail', { food: menuItem, className: "food-card__thumbnail" }) %>
-  <h2 class="food-card__name"><%= menuItem.name %></h2>
-  <p class="food-card__price">AED <%= menuItem.price.toLocaleString ("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></p>
+  <div class="food-card__contents">
+    <h2 class="food-card__name"><%= menuItem.name %></h2>
+    <p class="food-card__description"><%= `${menuItem.description.slice(0, 40)}${menuItem.description.length > 40 ? "..." : ""}` %></p>
+    <div>
+      <p class="food-card__price">AED <%= menuItem.price.toLocaleString ("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></p>
+      <button class="food-card__button"
+      hx-post="/basket"
+      hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
+      hx-swap="none">+</button>
+    </div>
+  </div>
 </li>
