@@ -1,3 +1,4 @@
+// Heading fonts
 @font-face {
   font-display: swap; 
   font-family: 'Bricolage Grotesque';
@@ -13,7 +14,7 @@
   src: url('/assets/fonts/bricolage-grotesque-v9-latin-800.woff2') format('woff2');
 }
 
-/* poppins-regular - latin */
+// Default fonts
 @font-face {
   font-display: swap;
   font-family: 'Poppins';
@@ -28,6 +29,8 @@
   font-weight: 700;
   src: url('/assets/fonts/poppins-v24-latin-700.woff2') format('woff2');
 }
+
+// Mono (mainly for the receipt page)
 @font-face {
   font-family: "Fira Mono";
   src: url('/assets/fonts/fira-mono-regular.woff2') format('woff2');
