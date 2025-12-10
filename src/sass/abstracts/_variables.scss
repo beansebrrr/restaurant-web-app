@@ -2,3 +2,12 @@
 $screen-sm: 360px;
 $screen-md: 720px;
 $screen-lg: 1024px;
+
+// Inline padding
+$pad-inline-sm: min(5%, 2rem);
+$pad-inline-rg: min(5%, 5rem);
+
+// Colors
+$clr-off-white: hsl(60, 65%, 95%);
+$clr-navy: hsl(225, 80%, 20%);
+$clr-yellow: hsl(40, 100%, 65%);

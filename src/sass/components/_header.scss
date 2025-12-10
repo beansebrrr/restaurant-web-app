@@ -1,0 +1,44 @@
+@use "../abstracts/variables" as var;
+
+header {
+  background-color: var.$clr-yellow;
+  color: var.$clr-navy;
+  padding: 1rem var.$pad-inline-sm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    color: var.$clr-off-white;
+    text-shadow: var.$clr-navy 0 2px;
+  }
+
+  nav>ul {
+    list-style: none;
+    display: flex;
+    gap: 1ch;
+  }
+
+  nav a {
+    color: inherit;
+    text-decoration: inherit;
+    position: relative;
+  }
+  
+  nav a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    border-radius: 50vh;
+    background-color: var.$clr-navy;
+    height: 1.5px;
+    width: 0;
+    left: 50%;
+    transition: all ease 100ms;
+
+  }
+  nav a:hover::before {
+    left: 0;
+    width: 100%;
+  }
+}
