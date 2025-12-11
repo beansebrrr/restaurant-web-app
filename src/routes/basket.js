@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { addToBasket, removeFromBasket } from "../controllers/basket.controller.js";
-import BasketItem from "../models/basket.model.js"
-import MenuItem from "../models/food.model.js"
-const router = Router()
+import BasketItem from "../models/basket.model.js";
+import MenuItem from "../models/food.model.js";
+const router = Router();
 
 
 router.route("/")
@@ -15,11 +15,9 @@ router.route("/")
     if (!req.body.itemID) {
       throw Error("Can't reference the item ID");
     };
-    const item = await MenuItem.findById(req.body.itemID);
-    
-    addToBasket(item, req.body.quantity);
-    
-    res.send(`Added to basket!`);
+    const item = await MenuItem.findById(req.body.itemID);  
+    addToBasket(item, req.body.quantity);   
+    res.redirect("/basket");
   } catch (error) {
     console.error(error);
   }
@@ -35,9 +33,9 @@ router.route("/:id")
     basketItem.quantity = parseInt(req.body.quantity);
     await basketItem.save();
     removeFromBasket(basketItem);
-    res.render("partials/basket-item.ejs", { item: basketItem })
+    res.render("partials/basket-item.ejs", { item: basketItem });
   } catch {
-    res.redirect("/")
+    res.redirect("/");
   }
 })
 

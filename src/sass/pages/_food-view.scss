@@ -6,7 +6,7 @@
   &__thumbnail {
     aspect-ratio: 1 / 1;
     width: 100%;
-    min-height: 180px;
+    min-height: 200px;
     max-height: 400px;
     border-radius: 8px;
     border: var.$clr-navy solid 2px;
@@ -28,7 +28,7 @@
     position: unset;
     border-radius: 12px;
     padding-block: 2rem;
-    border: var.$clr-navy solid 1px;
+    border: var.$clr-navy solid 2px;
     height: fit-content;
   }
 
