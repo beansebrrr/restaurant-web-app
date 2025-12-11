@@ -39,7 +39,7 @@ db.on("open", () => console.log("Database connected"));
 app.use("/", indexRouter);
 app.use("/basket", basketRouter);
 app.use("/menu", menuRouter);
-app.use("/receipt", receiptRouter );
+app.use("/receipt", receiptRouter);
 
 
 app.listen(process.env.PORT || 3000);

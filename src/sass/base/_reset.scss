@@ -30,6 +30,7 @@ body {
 /* 6. Improve media defaults */
 img, picture, video, canvas, svg {
   display: block;
+  object-fit: cover;
   max-width: 100%;
 }
 

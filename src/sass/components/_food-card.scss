@@ -25,14 +25,13 @@
     font-size: 1.1rem;
   }
 
-  &__button {
+  & &__button {
     padding: 0;
     position: relative;
     z-index: 10;
     width: 3ch;
-    aspect-ratio: 1 / 1;
+    height: 3ch;
     
-    border: var.$clr-navy solid 1px;
     background-color: var.$clr-yellow;
     border-radius: 4px;
     transition:

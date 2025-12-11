@@ -3,7 +3,7 @@
   <article class="food-details" _="on updatePrice
                                    set quantity to the value of <input/> in me
                                    set total_price to <%= menuItem.price %> * quantity
-                                   put total_price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) into #price">
+                                   put total_price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) into .value">
     <nav><a class="nav-back" href="/">Back</a></nav>
     <%- include("../partials/food-thumbnail", { 
       food: menuItem, 
@@ -11,15 +11,19 @@
     }) %>
     <div class="food-details__info">
       <h2><%= menuItem.name %></h2>
-      <% if (menuItem.description != null) { %>
+      <% if (menuItem.description != "") { %>
         <p class="food-details__description"><%= menuItem.description %></p>
       <% } %>
     </div>
     <form hx-post="/basket"
       hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
       hx-target="button[type=submit]">
-      <p class="price">AED <span id="price"><%= menuItem.price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></p>
-      <%- include('../partials/quantity-input', { minValue: 1 }) %>
+      <div>
+        <div class="food-details__price-container">
+          <p class="food-details__price">AED <span class="value"><%= menuItem.price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></p>
+        </div>
+        <%- include('../partials/quantity-input', { minValue: 1 }) %>
+      </div>
       <button type="submit">Add to Basket</button>
     </form>
   </article>
