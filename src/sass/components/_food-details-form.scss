@@ -1,41 +1,30 @@
 @use "../abstracts/variables" as var;
 @use "sass:color";
 
-.food-details {
-  &__thumbnail {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    min-height: 180px;
-    max-height: 400px;
-    border-radius: 8px;
-    border: var.$clr-navy solid 2px;
+.add-to-basket {
+  padding: 1.25rem var.$pad-inline-sm;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var.$clr-white;
+  border-radius: 12px 12px 0 0;
+  border: var.$clr-navy solid 1px;
+  border-bottom: 0;
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
   }
 
-  &__info {
-    padding: 0.5em;
+  .quantity-input {
+    height: 100%;
   }
 
-  form {
-    padding: 1.25rem var.$pad-inline-sm;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var.$clr-white;
-    border-radius: 12px 12px 0 0;
-    border: var.$clr-navy solid 1px;
-    border-bottom: 0;
-
-    >div {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-  }
-
-  &__price-container {
+  .food-price {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -47,12 +36,12 @@
     color: color.change(var.$clr-lime, $lightness: -20%);
     font-size: 0.9rem;
     min-width: fit-content;
-
+  
     .value {
       font-size: 1.25em;
     }
   }
-
+  
   button[type=submit] {
     width: 100%;
     padding: 0.5em;
@@ -64,14 +53,10 @@
     margin-block: 0 6px;
     box-shadow: var.$clr-navy 0 6px;
     transition: margin 100ms ease, box-shadow 100ms ease;
-
+  
     &:active {
       margin-block: 6px 0;
       box-shadow: unset;
     }
-  }
-
-  .quantity-input {
-    height: 100%;
   }
 }

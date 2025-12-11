@@ -1,10 +1,11 @@
 <%- include("../partials/header") %>
-<main>
-  <article class="food-details" _="on updatePrice
-                                   set quantity to the value of <input/> in me
-                                   set total_price to <%= menuItem.price %> * quantity
-                                   put total_price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) into .value">
-    <nav><a class="nav-back" href="/">Back</a></nav>
+<main id="food-view"
+_="on updatePrice
+   set quantity to the value of <input/> in .add-to-basket
+   set total_price to <%= menuItem.price %> * quantity
+   put total_price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+   into .value in .food-price">
+  <article class="food-details">
     <%- include("../partials/food-thumbnail", { 
       food: menuItem, 
       className: "food-details__thumbnail"
@@ -15,16 +16,16 @@
         <p class="food-details__description"><%= menuItem.description %></p>
       <% } %>
     </div>
-    <form hx-post="/basket"
-      hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
-      hx-target="button[type=submit]">
-      <div>
-        <div class="food-details__price-container">
-          <p class="food-details__price">AED <span class="value"><%= menuItem.price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></p>
-        </div>
-        <%- include('../partials/quantity-input', { minValue: 1 }) %>
-      </div>
-      <button type="submit">Add to Basket</button>
-    </form>
   </article>
+  <form class="add-to-basket" hx-post="/basket"
+    hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'
+    hx-target="button[type=submit]">
+    <div>
+      <div class="food-price">
+        <p>AED <span class="value"><%= menuItem.price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></p>
+      </div>
+      <%- include('../partials/quantity-input', { minValue: 1 }) %>
+    </div>
+    <button type="submit">Add to Basket</button>
+  </form>
 </main>
