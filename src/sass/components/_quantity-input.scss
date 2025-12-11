@@ -1,0 +1,19 @@
+.quantity-input {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(3ch, 4ch));
+  gap: 4px;
+
+  button {
+    aspect-ratio: 1 / 1;
+  }
+
+  input[type=number] {
+    text-align: center;
+    appearance: textfield;
+    background-color: unset;
+    border: none;
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+}

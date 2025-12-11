@@ -4,7 +4,7 @@
 .food-card {
   position: relative;
   background-color: var.$clr-white;
-  border: var.$clr-navy solid 1px;
+  border: var.$clr-navy solid 2px;
   min-height: 150px;
   padding: 4px;
   border-radius: 8px;
@@ -35,7 +35,6 @@
     border: var.$clr-navy solid 1px;
     background-color: var.$clr-yellow;
     border-radius: 4px;
-    cursor: pointer;
     transition:
       background-color 100ms ease,
       padding 100ms ease,
@@ -59,6 +58,7 @@
     div {
       margin-top: 1rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: end;
     }

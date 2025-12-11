@@ -1,0 +1,24 @@
+@use "../abstracts/variables" as var;
+@use "sass:color";
+
+button {
+  padding: 0.25em 0.5em;
+  background-color: var.$clr-white;
+  border: var.$clr-navy solid 1px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: unset;
+  filter: contrast(85%);
+}
+
+button:hover:not(:disabled) {
+  background-color: color.adjust(var.$clr-white, $lightness: -5%);
+}
+
+button:active:not(:disabled) {
+  box-shadow: inset color.change(var.$clr-navy, $alpha: 30%) 0 0.25em;
+  padding: 0.4em 0.5em 0.1em;
+}
