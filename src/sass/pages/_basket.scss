@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as var;
+
+#basket {
+  margin-bottom: 150px;
+  
+  ul {
+    container: basket / inline-size;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+}
+
+
+@media screen and (min-width: var.$screen-md) {
+  #basket {
+    display: grid;
+    grid-template-columns: 2fr minmax(250px, 1fr);
+    gap: 12px;
+  }
+
+  .checkout-form {
+    grid-column: -2 / -1;
+  }
+}

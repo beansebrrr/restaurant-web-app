@@ -15,8 +15,8 @@ router.route("/")
     if (!req.body.itemID) {
       throw Error("Can't reference the item ID");
     };
-    const item = await MenuItem.findById(req.body.itemID);  
-    addToBasket(item, req.body.quantity);   
+    const item = await MenuItem.findById(req.body.itemID);
+    await addToBasket(item, req.body.quantity);   
     res.redirect("/basket");
   } catch (error) {
     console.error(error);

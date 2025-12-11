@@ -1,0 +1,38 @@
+@use "../abstracts/mixins" as mi;
+
+.basket-item {
+  @include mi.food-card();
+  --quantity-input-btn-width: 3.5ch;
+  min-height: unset;
+
+  &__contents {
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 0 2ch;
+    }
+  }
+
+  h3 {
+    font-size: 1.35rem;
+  }
+
+  &__thumbnail {
+    aspect-ratio: 1 / 1;
+    min-height: 100px;
+    max-height: 120px;
+  }
+
+  &__price {
+    text-align: end;
+    font-size: 1rem;
+    
+    .price { font-size: 1.25em; }
+  }
+}

@@ -1,6 +1,7 @@
 .quantity-input {
+  --_quantity-input-btn-width: var(--quantity-input-btn-width, 5ch);
   display: grid;
-  grid-template-columns: repeat(3, minmax(auto, 5ch));
+  grid-template-columns: repeat(3, minmax(auto, var(--_quantity-input-btn-width)));
   gap: 4px;
 
   button {

@@ -25,11 +25,7 @@
   }
 
   .add-to-basket {
-    position: unset;
-    border-radius: 12px;
-    padding-block: 2rem;
-    border: var.$clr-navy solid 2px;
-    height: fit-content;
+    grid-column: -2 / -1;
   }
 
   .food-details {

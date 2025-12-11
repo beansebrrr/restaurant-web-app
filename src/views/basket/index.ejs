@@ -1,16 +1,16 @@
-<section class="basket" _="on updateTotalPrice
-                           set prices to .price set sum to 0
-                           for p in prices
-                            set sum to sum + parseFloat(p.textContent.replace(',', ''))
-                            put sum.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-                            into .total-price__value end
-                           init trigger updateTotalPrice">
-  <header>
-    <nav>
-      <a class="nav-back" href="/"><</a>
-    </nav>
-    <h2>Basket</h2>
-  </header>
+<header>
+  <nav>
+    <a class="nav-back" href="/"><</a>
+  </nav>
+  <h2>Basket</h2>
+</header>
+<main id="basket" _="on updateTotalPrice
+                     set prices to .price set sum to 0
+                     for p in prices
+                       set sum to sum + parseFloat(p.textContent.replace(',', ''))
+                       put sum.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+                       into .total-price__value end
+                     init trigger updateTotalPrice">
   <% if (basketItems.length > 0) { %>
     <ul>
       <% basketItems.forEach(item => { %>
@@ -20,11 +20,11 @@
   <% } else { %>
     <p>Your basket is empty :(</p>
   <% }; %>
-  <form class="basket__checkout-prompt" action="/receipt">
-    <div>
+  <form class="checkout-form" action="/receipt">
+    <div class="checkout-form__price">
       <p>Total</p>
       <p class="total-price">AED <span class="total-price__value">0.00</span></p>
     </div>
     <button type="submit">Place order</button>
   </form>
-</section>
+</main>
