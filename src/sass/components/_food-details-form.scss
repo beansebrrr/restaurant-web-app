@@ -1,23 +1,15 @@
+@use "../abstracts/mixins" as mi;
 @use "../abstracts/variables" as var;
 @use "sass:color";
 
 .add-to-basket {
-  padding: 1.25rem var.$pad-inline-sm;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: var.$clr-white;
-  border-radius: 12px 12px 0 0;
-  border: var.$clr-navy solid 2px;
-  border-bottom: 0;
+  @include mi.form();
 
   > div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 8px;
   }
 
   .quantity-input {
@@ -43,20 +35,6 @@
   }
   
   button[type=submit] {
-    width: 100%;
-    padding: 0.5em;
-    font-family: "Bricolage Grotesque";
-    font-weight: 800;
-    font-size: 1.3rem;
-    background-color: var.$clr-yellow;
-    border-width: 2px;
-    margin-block: 0 6px;
-    box-shadow: var.$clr-navy 0 6px;
-    transition: margin 100ms ease, box-shadow 100ms ease;
-  
-    &:active {
-      margin-block: 6px 0;
-      box-shadow: unset;
-    }
+    @include mi.big-button();
   }
 }

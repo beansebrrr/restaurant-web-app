@@ -1,6 +1,10 @@
-<div class="receipt-container">
+<%- include("../partials/header") %>
+<main id="receipt">
   <h1>Thank you!</h1>
   <p>We'll have your order ready in approximately never.</p>
   <%- include("../partials/receipt", { foods: foods }) %>
-  <a href="/">Go back home</a>
-</div>
+
+  <nav>
+    <a href="/">Return to menu</a>
+  </nav>
+</main>

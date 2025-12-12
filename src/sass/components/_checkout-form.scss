@@ -1,0 +1,29 @@
+@use "../abstracts/mixins" as mi;
+@use "../abstracts/variables" as var;
+@use "sass:color";
+
+.checkout-form {
+  @include mi.form();
+
+ 
+  button[type=submit] {
+    @include mi.big-button();
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    * { font-family: "Bricolage Grotesque"; }
+
+    p:first-child {
+      color: color.adjust(var.$clr-navy, $saturation: -5%, $lightness: 10%);
+    }
+
+    .total-price__value {
+      font-size: 1.35em;
+      font-weight: 600;
+    }
+  }
+}
