@@ -1,13 +1,21 @@
 @use "../abstracts/variables" as var;
+@use "sass:color";
 
 #basket {
   margin-bottom: 150px;
   
   ul {
+    height: fit-content;
     container: basket / inline-size;
     padding: 0;
     display: grid;
     gap: 8px;
+  }
+
+  .error-message {
+    color: color.adjust(var.$clr-navy, $hue: -5, $lightness: 10%);
+    text-align: center;
+    margin-block: 2rem;
   }
 }
 

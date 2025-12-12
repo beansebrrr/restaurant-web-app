@@ -1,0 +1,14 @@
+#receipt {
+  >h1, >p {
+    text-align: center;
+  }
+
+  >* {
+    margin-inline: auto;
+  }
+
+  nav{
+    text-align: center;
+    margin-block: 2rem;
+  }
+}

@@ -1,0 +1,47 @@
+@use "../abstracts/variables" as var;
+
+.receipt {
+  width: fit-content;
+  background-color: var.$clr-white;
+  padding: 16px 16px 32px;
+  border: var.$clr-navy solid 2px;
+  margin-block: 16px;
+
+  *:not(h2) {
+    font-family: "Fira Mono";
+    color: var.$clr-navy;
+    fill: var.$clr-navy;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-block: 0.25em 0.5em;
+  }
+  
+  .barcode {
+    padding: 4px;
+    margin-block: 16px 8px;
+  }
+
+  &__transactions {
+    width: 100%;
+    margin-block: 16px;
+    
+    td:first-child, th:first-child {
+      width: max(20ch, 10vw);
+    }
+    td:not(:first-child):not(:last-child) {
+      text-align: center;
+    }
+    td:last-child {
+      text-align: end;
+    }
+  }
+
+  &__total-cost {
+    td {
+      border-top: var.$clr-navy dashed 2px;
+      padding-block: 0.5em;
+    }
+  }
+}

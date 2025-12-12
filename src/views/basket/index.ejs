@@ -1,9 +1,4 @@
-<header>
-  <nav>
-    <a class="nav-back" href="/"><</a>
-  </nav>
-  <h2>Basket</h2>
-</header>
+<%- include("../partials/header") %>
 <main id="basket" _="on updateTotalPrice
                      set prices to .price set sum to 0
                      for p in prices
@@ -18,7 +13,9 @@
       <% }); %>
     </ul>
   <% } else { %>
-    <p>Your basket is empty :(</p>
+    <p class="error-message">
+      <%= locals.errorMessage ? locals.errorMessage : "Your basket is empty :(" %>
+    </p>
   <% }; %>
   <form class="checkout-form" action="/receipt">
     <div class="checkout-form__price">
