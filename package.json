@@ -8,7 +8,7 @@
     "sass:watch": "sass src/sass/main.scss public/stylesheets/styles.css --watch --style=compressed",
     "start": "node app",
     "dev": "nodemon app",
-    "build": "npm run sass"
+    "build": "npm run sass && ls -R public"
   },
   "keywords": [],
   "author": "",
