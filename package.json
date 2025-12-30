@@ -4,10 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "sass": "sass src/sass/main.scss public/stylesheets/styles.css --no-source-map --style=compressed",
+    "sass:watch": "sass src/sass/main.scss public/stylesheets/styles.css --watch --style=compressed",
     "start": "node app",
     "dev": "nodemon app",
-    "sass": "sass src/sass/main.scss public/stylesheets/styles.css --no-source-map --style=compressed",
-    "sass:watch": "sass src/sass/main.scss public/stylesheets/styles.css --watch --style=compressed"
+    "build": "npm run sass"
   },
   "keywords": [],
   "author": "",
