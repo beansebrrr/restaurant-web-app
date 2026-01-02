@@ -1,7 +1,7 @@
 <main>
   <ul class="menu">
     <% foods.forEach(food => { %>
-      <%- include('../partials/food-card', { food }) %>
+      <%- include('../partials/food-card', { food: food }) %>
     <% }); %>
   </ul>
 </main>

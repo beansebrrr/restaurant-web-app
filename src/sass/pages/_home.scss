@@ -1,0 +1,74 @@
+@use "../abstracts/variables" as var;
+@use "sass:color";
+
+#home {
+  height: calc(100dvh - 72px);
+  padding: 1rem;
+  
+  section:first-child {
+    * {
+      color: var.$clr-off-white;
+      text-align: center;
+    }
+    
+    border: var.$clr-navy solid 2px;
+    padding: 2rem;
+    width: 100%;
+    min-height: fit-content;
+    height: 100%;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .hero-text {
+      margin-block: 5rem;
+      
+      * {
+        text-shadow: color.change(var.$clr-navy, $alpha: 70%) 0 0 4px;
+      }
+    }
+    h1 {
+      font-size: 4rem;
+      line-height: 95%;
+    }
+    p {
+      font-size: 1.25rem;
+    }
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+
+
+  .button-group {
+    font-size: 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 12px;
+    gap: 6px;
+
+    .button {
+      flex: 1;
+      max-width: 300px;
+      min-width: fit-content;
+      background-color: var.$clr-off-white;
+      color: var.$clr-navy;
+      --button-pady: 0.5em;
+      --button-padx: 1em;
+
+      &:first-child {
+        background-color: var.$clr-yellow;
+      }
+    }
+  }
+}
