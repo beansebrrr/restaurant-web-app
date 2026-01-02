@@ -1,0 +1,9 @@
+<div hx-swap-oob="beforeend:#toasts">
+  <li class="toast"
+  _="on closeToast add .closing then wait for animationend then remove me end
+  on load wait 5s then trigger closeToast end
+  on click trigger closeToast end
+  ">
+    <%= message %>
+  </li>
+</div>

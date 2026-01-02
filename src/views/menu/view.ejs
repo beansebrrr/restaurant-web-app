@@ -1,4 +1,7 @@
-<%- include("../partials/header") %>
+<% 
+  const priceStr = menuItem.price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+%>
+
 <main id="food-view"
 _="on updatePrice
    set quantity to the value of <input/> in .quantity-input in .add-to-basket
@@ -17,11 +20,11 @@ _="on updatePrice
       <% } %>
     </div>
   </article>
-  <form class="add-to-basket" action="/basket" method="post">
+  <form class="add-to-basket" hx-post="/basket" hx-swap="none">
     <input type="hidden" name="itemID" value="<%= menuItem.id %>">
     <div>
       <div class="food-price">
-        <p>AED <span class="value"><%= menuItem.price.toLocaleString ('en-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></p>
+        <p>AED <span class="value"><%= priceStr %></span></p>
       </div>
       <%- include('../partials/quantity-input', { minValue: 1 }) %>
     </div>

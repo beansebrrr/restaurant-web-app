@@ -1,5 +1,6 @@
+<% 
+  const srcset = food.imagePaths.map(imagePath => `${imagePath.path} ${imagePath.size}w`)
+%>
+
 <img alt="<%= food.name %>"
-srcset="<%
-food.imagePaths.forEach(imagePath => { %>
-  <%= imagePath.path %> <%= imagePath.size %>w, 
-<% }); %>" class="<%= locals.className || "" %>">
+srcset="<%= srcset.join(", ") %>" class="<%= locals.className || "" %>">

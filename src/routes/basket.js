@@ -17,12 +17,11 @@ router.route("/")
     };
     const item = await MenuItem.findById(req.body.itemID);
     await addToBasket(item, req.body.quantity);   
-    res.redirect("/basket");
+    res.render("partials/toast", { message: "Added to basket!", barebones: true });
   } catch (error) {
     console.error(error);
   }
 });
-
 
 router.route("/:id")
 .put(async function (req, res) {
@@ -33,7 +32,7 @@ router.route("/:id")
     basketItem.quantity = parseInt(req.body.quantity);
     await basketItem.save();
     removeFromBasket(basketItem);
-    res.render("partials/basket-item.ejs", { item: basketItem });
+    res.render("partials/basket-item.ejs", { item: basketItem, barebones: true });
   } catch {
     res.redirect("/");
   }
