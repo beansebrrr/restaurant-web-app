@@ -70,6 +70,7 @@
 }
 
 @mixin big-button {
+  display: inline;
   width: 100%;
   padding: 0.5em;
   font-family: "Bricolage Grotesque";
