@@ -1,11 +1,16 @@
+<% 
+  const description = `${menuItem.description.slice(0, 40)}${menuItem.description.length > 40 ? "..." : ""}`;
+  const priceStr = `AED ${menuItem.price.toLocaleString ("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+%>
+
 <li role="link" class="food-card">
   <a href="/menu/<%= menuItem.id %>"></a>
   <%- include('./food-thumbnail', { food: menuItem, className: "food-card__thumbnail" }) %>
   <div class="food-card__contents">
     <h2 class="food-card__name"><%= menuItem.name %></h2>
-    <p class="food-card__description"><%= `${menuItem.description.slice(0, 40)}${menuItem.description.length > 40 ? "..." : ""}` %></p>
+    <p class="food-card__description"><%= description %></p>
     <div>
-      <p class="food-card__price">AED <%= menuItem.price.toLocaleString ("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></p>
+      <p class="food-card__price"><%= priceStr %></p>
       <button class="food-card__button"
       hx-post="/basket"
       hx-vals='js:{ "itemID" : "<%= menuItem.id %>" }'

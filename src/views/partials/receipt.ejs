@@ -1,3 +1,7 @@
+<% 
+  const totalPriceStr = `AED ${(foods.reduce((sum, food) => sum + parseFloat(food.cost), 0)).toLocaleString("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`; 
+%>
+
 <div class="receipt">
   <h2>Kottej</h2> 
   <p><strong>Type:</strong> Food order</p>
@@ -19,7 +23,7 @@
       <% }); %>
       <tr class="receipt__total-cost">
         <td colspan="2">Total</td>
-        <td>AED <%= foods.reduce((sum, food) => sum + parseFloat(food.cost), 0) %></td>
+        <td><%= totalPriceStr %></td>
       </tr>
     </table>
     <h3>Have any concerns?</h3>
