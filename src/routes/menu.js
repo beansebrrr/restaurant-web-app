@@ -5,8 +5,8 @@ const router = Router()
 
 router.route("/")
 .get(async function (req, res) {
-    const menuItems = await Food.find({});
-    res.render("menu/index", { items: menuItems });
+    const foods = await Food.find({});
+    res.render("menu/index", { foods: foods });
 })
 .post(async function (req, res) {
   const menuItem = new Food({
