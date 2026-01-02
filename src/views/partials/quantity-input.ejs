@@ -10,6 +10,7 @@
          else remove @disabled from previous <button/> end
          on change trigger updatePrice
          then if parseInt(my value) > 0 trigger toggleButton end
+         on submit set my value to <%= locals.initialValue == null ? 1 : locals.initialValue %> end
          init trigger toggleButton">
       <button _="on click halt the event
                  set inputField to previous <input/>

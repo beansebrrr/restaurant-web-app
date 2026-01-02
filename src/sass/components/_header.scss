@@ -9,6 +9,9 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
   h1 {
     color: var.$clr-off-white;

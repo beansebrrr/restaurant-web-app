@@ -1,9 +1,10 @@
 @use "../abstracts/variables" as var;
+@use "sass:color";
 
 
 #toasts {
   position: fixed;
-  top: 0;
+  top: 72px;
   right: 0;
   margin: 8px;
   padding: 0;
@@ -18,20 +19,44 @@
 .toast {
   border: var.$clr-navy solid 1px;
   border-radius: 4px;
-  background: linear-gradient(to right, hsl(120, 100%, 85%), var.$clr-white 50%);
+  background: var.$clr-white;
   padding: 0.5em 1em;
-  animation: fadeIn 150ms ease;
+  animation: slideIn 150ms ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: color.change(var.$clr-navy, $alpha: 50%) 0 0 12px;
+  cursor: pointer;
+  transition: background 150ms ease;
+  
+  &:hover {
+    background: var.$clr-off-white;
+  }
+}
+
+.toast::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: color.change(var.$clr-lime, $lightness: 45% );
+  border-radius: 100vh;
+  animation: shrink 5s linear;
 }
 
 .toast.closing {
-  animation: fadeOut 150ms ease;
+  animation: slideOut 150ms ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0%); }
 }
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+@keyframes slideOut {
+  from { transform: translateX(0%); }
+  to { transform: translateX(100%); }
+}
+@keyframes shrink {
+  from { width: 100% ;}
+  to { width: 0%; }
 }
