@@ -2,7 +2,6 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import express from "express";
 import expressEjsLayouts from "express-ejs-layouts";
-import methodOverride from "method-override";
 import mongoose from "mongoose";
 import path from "path"
 
@@ -25,7 +24,6 @@ app.set("views", __dirname + "/src/views");
 app.set("layout", "layouts/layout");
 app.use(expressEjsLayouts);
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
 app.use(bodyParser.json());
 
